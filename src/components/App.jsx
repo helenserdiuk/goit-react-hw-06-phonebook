@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,10 +12,6 @@ export default function App() {
   const filter = useSelector(getFilter);
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const onAddContact = data => {
     if (contacts.some(el => el.name === data.name)) {
